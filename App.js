@@ -1,22 +1,21 @@
 
-import { StyleSheet, Text, View,StatusBar } from 'react-native';
+ import { StyleSheet, Text, View ,SafeAreaView} from 'react-native';
+ import { TextInput } from 'react-native-paper'
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text>amsal</Text>
-      <StatusBar style="auto" />
-    </View>
+     < TextInput        />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'blue',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding:20,
-    margin:30,
+    backgroundColor: '#2c075c',
+ 
+  
   },
 });
