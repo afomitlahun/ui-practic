@@ -3,29 +3,34 @@
  import { TextInput } from 'react-native-paper';
 import {SafeAreaView  } from'react-native-safe-area-context';
 import{ useState } from 'react';
+//import focusTime from './components/focusTime';
 
 export default function App() { 
-  const [task,setTask]= 
-  useState('');
-   const [task,setTask]=
-    useState([]);
-    const addTask = () => {
-     setTask([...task,task]); 
-     setTask('');
-    };
+ const [task,setTask] = useState('');
+ const[tasks,setTasks] = useState([]);//useState
+
+
+ const addTask = () =>{  //add task function
+ console.log("Button pressed");
+
+  setTasks([...tasks,task]);
+  setTask('');
+ };
+    
   return (
     <SafeAreaView style={styles.container}>
-      <Text>amsal</Text>
+      <Text>hello</Text>
       <View  style= { styles.inputcontainer}>
      < TextInput 
      style={styles.textinput}
      placeholder="what would you like to focus on..." 
      mode = "outlined"  
-     onPress={addTask}
      value={task}
      onChangeText={setTask}     />
     < TouchableOpacity
-      style={styles.fabbutton}  onPress={ () =>{}}>
+      style={styles.fabbutton} 
+       onPress={ addTask }
+         >
        <Text
        style={ styles.fabText}>+</Text>
       </ TouchableOpacity>
@@ -45,7 +50,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2c075c',
+    backgroundColor: '#0d91a0',
   
   },
   inputcontainer:{
@@ -58,16 +63,11 @@ const styles = StyleSheet.create({
   textinput:{
     flex:1,
   },
-  fabbutton:{
-    backgroundColor:'#fff',
-    width:50,
-    borderradius:7,
-    justifyContent:'center'
+ 
 
-  },
-  fabbutton:{
+fabbutton:{
     width:50,
-    heigh:50,
+    height:50,
     justifyContent:'center',
     alignItems:'center',
    backgroundColor:'transparent',
@@ -86,8 +86,8 @@ const styles = StyleSheet.create({
     padding:10,
   },
   focuseTitle:{
-    fontweight:'bold',
-    fontsize:26,
+    fontWeight:'bold',
+    fontSize:26,
     marginLeft:10,
     color:'white'
   }
