@@ -2,23 +2,23 @@ import { StyleSheet, Text, View ,Button, TouchableOpacity } from 'react-native';
  import { TextInput } from 'react-native-paper';
 import {SafeAreaView  } from'react-native-safe-area-context';
 import{ useState } from 'react';
-import focusTime from './components/focusTime';
+import focusTime from './component/focusTime';
 
 export default function App() { 
   const [switchScreen,setSwitchScreen] = useState(false);
  const [addTask , setAddTask] = useState(false);
 const [task,setTask] = useState('');
- const[tasks,setTasks] = useState("");//useState
+// const[tasks,setTasks] = useState("");//useState
 const [tasks,setTasks] =useState([]);
 const [selectedTask, setSelectedTask]=useState("");
 
-const changeScreen = () => { 
+const changeScreenn = () => { 
   setSwitchScreen(!switchScreen);
 }
 const changeScreen = () => {
   const trimmed = task.trim();
   if (trimmed.length>0)  {
-    setTasks([...prev,trimmed]);
+    setTasks(prev=>[...prev,trimmed]);
     setTasks("")
     setSelectedTask(trimmed);
   }
@@ -29,7 +29,7 @@ const changeScreen = () => {
  }
 
  const handleTextechange = () =>{
-  setTask(task);
+ // #setTask(task);
   setTask("");
  }
 
@@ -45,7 +45,7 @@ if(addTask) {
 }
 
 
- const addTask = () =>{  //add task function
+ const handleaddTask = () =>{  //add task function
  console.log("Button pressed");
 
   setTasks([...tasks,task]);
@@ -67,7 +67,8 @@ if(addTask) {
       style={styles.fabbutton} 
        onPress={() =>{
         addTask();
-        changeScreen();
+
+       changeScreen();
        }}
          >
        <Text
@@ -76,7 +77,7 @@ if(addTask) {
      </View>
      <View style={styles.focusedtaske}>
       <Text style={styles.focuseTitle}>Things we've focusd on:</Text>
-      {tasks.map(( task) =>(
+      {tasks.map(( task,index) =>(
         <Text key={index} style ={styles.taskText} >{task} </Text>
       )
       )}
@@ -141,4 +142,4 @@ fabbutton:{
     padding:10
   }
 
-});1  
+});

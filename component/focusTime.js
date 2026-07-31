@@ -1,6 +1,5 @@
-
-import {View,Text} from 'react-native'
-import { safeAreaView} from 'react-native-safearea-context'
+import {View,Text,StyleSheet,TouchableOpacity} from 'react-native'
+import { SafeAreaView} from 'react-native-safe-area-context'
 import {useState,useEffect} from 'react'
 
 export default function focusTime(){
@@ -8,10 +7,10 @@ export default function focusTime(){
     const [isRunning,setIsRunning ] = useState(false);
 useEffect(() =>{
 
-},)
+  },)
 
     return(
-        <safeAreaView>
+        <SafeAreaView>
             <Text> </Text>
             <Text></Text>
            < Text> </Text>
@@ -30,8 +29,8 @@ useEffect(() =>{
             <Text>Back</Text>
          </TouchableOpacity>
 
-        </safeAreaView>
+        </SafeAreaView>
     )
 }
-const styles= StyleSheet.creat({})
+const styles= StyleSheet.create({})
 
