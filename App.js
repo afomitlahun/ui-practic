@@ -1,13 +1,48 @@
-
- import { StyleSheet, Text, View ,Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View ,Button, TouchableOpacity } from 'react-native';
  import { TextInput } from 'react-native-paper';
 import {SafeAreaView  } from'react-native-safe-area-context';
 import{ useState } from 'react';
-//import focusTime from './components/focusTime';
+import focusTime from './components/focusTime';
 
 export default function App() { 
- const [task,setTask] = useState('');
- const[tasks,setTasks] = useState([]);//useState
+  const [switchScreen,setSwitchScreen] = useState(false);
+ const [addTask , setAddTask] = useState(false);
+const [task,setTask] = useState('');
+ const[tasks,setTasks] = useState("");//useState
+const [tasks,setTasks] =useState([]);
+const [selectedTask, setSelectedTask]=useState("");
+
+const changeScreen = () => { 
+  setSwitchScreen(!switchScreen);
+}
+const changeScreen = () => {
+  const trimmed = task.trim();
+  if (trimmed.length>0)  {
+    setTasks([...prev,trimmed]);
+    setTasks("")
+    setSelectedTask(trimmed);
+  }
+}
+
+ const handleBack = () =>{
+  setAddTask (prev =>!prev);
+ }
+
+ const handleTextechange = () =>{
+  setTask(task);
+  setTask("");
+ }
+
+if(switchScreen) {
+  return <focusTime focusTask ={selectedTask} onBack = { changeScreen} />
+}
+
+if(addTask) {
+  return(
+    <focusTime/>
+  )
+
+}
 
 
  const addTask = () =>{  //add task function
@@ -26,10 +61,14 @@ export default function App() {
      placeholder="what would you like to focus on..." 
      mode = "outlined"  
      value={task}
-     onChangeText={setTask}     />
+     onChangeText={ (text) => setTask(text )}
+     />
     < TouchableOpacity
       style={styles.fabbutton} 
-       onPress={ addTask }
+       onPress={() =>{
+        addTask();
+        changeScreen();
+       }}
          >
        <Text
        style={ styles.fabText}>+</Text>
@@ -37,6 +76,10 @@ export default function App() {
      </View>
      <View style={styles.focusedtaske}>
       <Text style={styles.focuseTitle}>Things we've focusd on:</Text>
+      {tasks.map(( task) =>(
+        <Text key={index} style ={styles.taskText} >{task} </Text>
+      )
+      )}
       <View style= {{padding:20}}>
         <Text style ={{fontSize:18,color:'#fff', fontWeight:'semi-bold'}} > 1, Learn react native</Text>
         <Text style ={{fontSize:18,color:'#fff', fontWeight:'semi-bold'}}> 2, learn js bacic</Text>
@@ -90,6 +133,12 @@ fabbutton:{
     fontSize:26,
     marginLeft:10,
     color:'white'
+  },
+  taskText:{
+    fontWeight:'semi-bold',
+    fontSize:18,
+    color:'#fff',
+    padding:10
   }
 
-});
+});1  
