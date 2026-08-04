@@ -2,7 +2,7 @@ import {View,Text,StyleSheet,TouchableOpacity} from 'react-native'
 import { SafeAreaView} from 'react-native-safe-area-context'
 import {useState,useEffect} from 'react'
 
-export default function focusTime(){
+export default function FocusTime(){
     const time = [600,900, 1200];
     const [isRunning,setIsRunning ] = useState(false);
 useEffect(() =>{

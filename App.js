@@ -2,13 +2,13 @@ import { StyleSheet, Text, View ,Button, TouchableOpacity } from 'react-native';
  import { TextInput } from 'react-native-paper';
 import {SafeAreaView  } from'react-native-safe-area-context';
 import{ useState } from 'react';
-import focusTime from './component/focusTime';
+import FocusTime from './component/focusTime';
 
 export default function App() { 
   const [switchScreen,setSwitchScreen] = useState(false);
  const [addTask , setAddTask] = useState(false);
 const [task,setTask] = useState('');
-// const[tasks,setTasks] = useState("");//useState
+ //const[tasks,setTasks] = useState("");//useState
 const [tasks,setTasks] =useState([]);
 const [selectedTask, setSelectedTask]=useState("");
 
@@ -19,10 +19,11 @@ const changeScreen = () => {
   const trimmed = task.trim();
   if (trimmed.length>0)  {
     setTasks(prev=>[...prev,trimmed]);
-    setTasks("")
+    setTask("")
     setSelectedTask(trimmed);
+    setSwitchScreen(true);
   }
-}
+};
 
  const handleBack = () =>{
   setAddTask (prev =>!prev);
@@ -34,12 +35,12 @@ const changeScreen = () => {
  }
 
 if(switchScreen) {
-  return <focusTime focusTask ={selectedTask} onBack = { changeScreen} />
+  return <FocusTime focusTask ={selectedTask} onBack = { changeScreen} />
 }
 
 if(addTask) {
   return(
-    <focusTime/>
+    <FocusTime/>
   )
 
 }
@@ -55,7 +56,7 @@ if(addTask) {
   return (
     <SafeAreaView style={styles.container}>
       <Text>hello</Text>
-      <View  style= { styles.inputcontainer}>
+     <View  style= { styles.inputcontainer}>
      < TextInput 
      style={styles.textinput}
      placeholder="what would you like to focus on..." 
@@ -66,12 +67,12 @@ if(addTask) {
     < TouchableOpacity
       style={styles.fabbutton} 
        onPress={() =>{
-        addTask();
+        handleaddTask();
 
        changeScreen();
        }}
          >
-       <Text
+        <Text
        style={ styles.fabText}>+</Text>
       </ TouchableOpacity>
      </View>
@@ -81,7 +82,7 @@ if(addTask) {
         <Text key={index} style ={styles.taskText} >{task} </Text>
       )
       )}
-      <View style= {{padding:20}}>
+        <View style= {{padding:20}}>
         <Text style ={{fontSize:18,color:'#fff', fontWeight:'semi-bold'}} > 1, Learn react native</Text>
         <Text style ={{fontSize:18,color:'#fff', fontWeight:'semi-bold'}}> 2, learn js bacic</Text>
       </View>
