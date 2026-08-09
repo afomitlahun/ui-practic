@@ -5,45 +5,40 @@ import{ useState } from 'react';
 import FocusTime from './component/focusTime';
 
 export default function App() { 
-  const [switchScreen,setSwitchScreen] = useState(false);
- const [addTask , setAddTask] = useState(false);
+  const [switchScreen,setSwitchScreen] = useState(false);//focusTime screen atasay
+// const [addTask , setAddTask] = useState(false);
 const [task,setTask] = useState('');
- //const[tasks,setTasks] = useState("");//useState
-const [tasks,setTasks] =useState([]);
-const [selectedTask, setSelectedTask]=useState("");
+const [tasks,setTasks] =useState([]);//ye mnsfewn list lemaskemet  new 
+const [selectedTask, setSelectedTask]=useState("");// list wst yemeretnewn lemaskemet new
 
-const changeScreenn = () => { 
-  setSwitchScreen(!switchScreen);
+const changeScreen = () => { 
+  setSwitchScreen(!switchScreen);// function new screen ykeyral ena boolean ygelebtal(!)
 }
-const changeScreen = () => {
-  const trimmed = task.trim();
-  if (trimmed.length>0)  {
-    setTasks(prev=>[...prev,trimmed]);
-    setTask("")
-    setSelectedTask(trimmed);
-    setSwitchScreen(true);
+ const addTask = () => {   // function new button sichan yseral
+  const trimmed = task.trim();  //space yatefal e.g  |    learn react |--> | learn react| 
+  if (trimmed.length>0)  {  // snt fidel endesafe yfetshal
+  setTasks(prev=>[...prev,trimmed]); // prev=kedmo yenebere task ..prev befit yeneberewn
+  //  hulu yametal trimmed wtetun ykeyral
+    setTask("") //button keteneka behuala learn react blen yesafnew ytefal(clane endiyaderg)
+    setSelectedTask(trimmed); //ahun yemeretkut task screen lay askemtlgni
+  setSwitchScreen(!switchScreen);// function new screen ykeyral ena boolean ygelebtal(!)
+   setSwitchScreen(true);// screen ykeyral//yhe sitera switchScreen= true yhonal
   }
 };
 
+
  const handleBack = () =>{
-  setAddTask (prev =>!prev);
+  setAddTask (prev =>!prev);//back button sichan false->true ,true->false
  }
 
- const handleTextechange = () =>{
- // #setTask(task);
-  setTask("");
- }
-
-if(switchScreen) {
-  return <FocusTime focusTask ={selectedTask} onBack = { changeScreen} />
+if(switchScreen) {  // = if(switchscreen === true) yhe malet screen ykeyrewal malet new
+  return <FocusTime  // FocusTime asay
+  focusTask ={selectedTask} // learn react native bihon yemeretnew esun wed focus yemiwesdln{ 
+  // focusTask&onBck props is parent component ke aap wed focustime yemilkew mereja new  }
+   onBack = { changeScreen} /> //  ezihm funcion eyelacn new on back snneka degmo screen adrglgni
 }
 
-if(addTask) {
-  return(
-    <FocusTime/>
-  )
 
-}
 
 
  const handleaddTask = () =>{  //add task function
@@ -67,8 +62,7 @@ if(addTask) {
     < TouchableOpacity
       style={styles.fabbutton} 
        onPress={() =>{
-        handleaddTask();
-
+        addTask();
        changeScreen();
        }}
          >
@@ -79,7 +73,7 @@ if(addTask) {
      <View style={styles.focusedtaske}>
       <Text style={styles.focuseTitle}>Things we've focusd on:</Text>
       {tasks.map(( task,index) =>(
-        <Text key={index} style ={styles.taskText} >{task} </Text>
+        <Text key={index} style ={styles.taskText} >{task} </Text>// yemnsetew stayle leeyandandu endiders
       )
       )}
         <View style= {{padding:20}}>
