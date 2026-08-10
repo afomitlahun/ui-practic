@@ -15,16 +15,19 @@ export default function FocusTime({focusTask,onBack}){
 
     return(
         <SafeAreaView style={styles.continer}>
-          <View style={styles.padding}>
             <Text style={styles.timerText}> {timeFormat(times[0])} </Text>
-            </View>
             
            < Text style={styles.subTite}>focusing on : </Text>
            <Text style={styles.focusTask}> {focusTask}</Text>
 
-          <View style={{height:10,width:'100%',backgroundColor:'#6ccdd7',marginTop:30,marginBottom:20}}/>
+          <View style={styles.selectedText}/>
 
-          <View>
+          <View style={styles.timeOptions}>
+            {times.map((time,index) =>( 
+              <TouchableOpacity key={index} style={styles.timeOptionsButton} onPress={()=> {}}>
+                <Text style={styles.timeOptionText}> {timeFormat(time)}</Text>
+              </TouchableOpacity>
+            ))}
             <Text> Task  </Text>
           </View>
 
@@ -66,6 +69,25 @@ focusTask:{
   marginTope:50,
   fontWeight:'bold',
 
+},
+selectedText:{ 
+  height:10,
+  width:'100%',
+  backgroundColor:'#6ccdd7',
+  marginTop:30,
+  marginBottom:20
+
+},
+timeOptions:{
+  flexDirection:'row',
+},
+timeOptionsButton:{
+height:60,
+width:60,
+borderRadius:30,
+justifyContent:'center',
+alignItems:'center',
+backgroundColor:'transparent',
 }
 })
 
