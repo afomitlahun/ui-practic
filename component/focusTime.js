@@ -59,10 +59,8 @@ timerText:{
   fontWeight:'bold',
   fontSize:50,
   color:'#fff',
-  marginTop:10,
-},
-padding:{
-  padding:20,
+  marginTop:50,
+
 },
 subTite:{
   fontSize:18,
@@ -136,7 +134,7 @@ styleTask:{
   textAlign:'center',
  // alignSelf:'center',
   marginBottom:20,
-
+  padding:20,
 }
 })
 

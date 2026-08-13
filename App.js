@@ -21,31 +21,30 @@ const changeScreen = () => {
   //  hulu yametal trimmed wtetun ykeyral
     setTask("") //button keteneka behuala learn react blen yesafnew ytefal(clane endiyaderg)
     setSelectedTask(trimmed); //ahun yemeretkut task screen lay askemtlgni
-  setSwitchScreen(!switchScreen);// function new screen ykeyral ena boolean ygelebtal(!)
-   setSwitchScreen(true);// screen ykeyral//yhe sitera switchScreen= true yhonal
+  //setSwitchScreen(!switchScreen);// function new screen ykeyral ena boolean ygelebtal(!)
+   //setSwitchScreen(true);// screen ykeyral//yhe sitera switchScreen= true yhonal
   }
 };
 
 
- const handleBack = () =>{
-  setAddTask (prev =>!prev);//back button sichan false->true ,true->false
- }
+ //const handleBack = () =>{
+  //setAddTask (prev =>!prev);//back button sichan false->true ,true->false
+ //}
 
 if(switchScreen) {  // = if(switchscreen === true) yhe malet screen ykeyrewal malet new
   return <FocusTime  // FocusTime asay
   focusTask ={selectedTask} // learn react native bihon yemeretnew esun wed focus yemiwesdln{ 
   // focusTask&onBck props is parent component ke aap wed focustime yemilkew mereja new  }
    onBack = { changeScreen} /> //  ezihm funcion eyelacn new on back snneka degmo screen adrglgni
-}
+//}
 
 
 
 
- const handleaddTask = () =>{  //add task function
- console.log("Button pressed");
+ //const handleaddTask = () =>{  //add task function
 
-  setTasks([...tasks,task]);
-  setTask('');
+ // setTasks([...tasks,task]);
+  
  };
     
   return (
@@ -95,7 +94,7 @@ const styles = StyleSheet.create({
   inputcontainer:{
 
   flexDirection:'row',
-  padding:20,
+  padding:10,
   gap:10,
   
   },
