@@ -41,9 +41,9 @@ if(switchScreen) {  // = if(switchscreen === true) yhe malet screen ykeyrewal ma
 
 
 
- //const handleaddTask = () =>{  //add task function
+// const handleaddTask = () =>{  //add task function
 
- // setTasks([...tasks,task]);
+ //setTasks([...tasks,task]);
   
  };
     

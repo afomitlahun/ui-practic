@@ -5,17 +5,20 @@ import {useState,useEffect} from 'react'//useEffect=and nger sikeyer weym compon
 export default function FocusTime({focusTask,onBack}){
     const times = [600,900, 1200];
     const [isRunning,setIsRunning ] = useState(false);//ahun timeru eyesera new wey yemilewn yyzal(false)yehonebet mejemeriya timeru ayseram
-    const[selectedTime,setSelectedTime] = useState(null)//yetgnawn time mertku
+    const[selectedTime,setSelectedTime] = useState()//yetgnawn time mertku
     const timeFormat = (time) =>{
       const minutes = Math.floor(time/60);
       const second =Math.floor(time%60);
 
       return `${minutes}:${second<10 ? '0':''}${second}`;//5minut:3second =5:03
     }
+    useEffect(() =>{ },[])
 
     return(
         <SafeAreaView style={styles.continer}>
-            <Text style={styles.timerText}> {timeFormat(times[0])} </Text>
+            <Text style={styles.timerText}>
+               {selectedTime ? timeFormat (selectedTime): '00:00'}
+                </Text>
             
            < Text style={styles.subTite}>focusing on : </Text>
            <Text style={styles.focusTask}> {focusTask}</Text>
@@ -29,7 +32,8 @@ export default function FocusTime({focusTask,onBack}){
                 
               
               style={styles.timeOptionsButton} 
-              onPress={()=> {}}>
+              onPress={()=> setSelectedTime(time)} >
+
 
                 <Text style={styles.timeOptionText}> {timeFormat(time)}</Text>
               </TouchableOpacity>
@@ -43,7 +47,7 @@ export default function FocusTime({focusTask,onBack}){
           <TouchableOpacity style={styles.backFab} onPress={onBack}>
             <Text style={{color:'#fff'}}>Back</Text>
          </TouchableOpacity>
-
+              
         </SafeAreaView>
     )
 }
@@ -74,12 +78,12 @@ focusTask:{
  fontWeight:'bold',
 
 },
-underselectedText:{ 
+underselectedText:{ //fezazawa line
   height:10,
   width:'100%',
   backgroundColor:'#6ccdd7',
   marginTop:30,
-  marginBottom:20
+  marginBottom:20,
 
 },
 timeOptions:{
