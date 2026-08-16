@@ -1,6 +1,7 @@
 import {View,Text,StyleSheet,TouchableOpacity,Alert} from 'react-native'
 import { SafeAreaView} from 'react-native-safe-area-context'
 import {useState,useEffect} from 'react'//useEffect=and nger sikeyer weym compont sikefet code masked
+import Toast from "react-native-toast-message";
 
 export default function FocusTime({focusTask,onBack}){
     const times = [10,900, 1200];
@@ -12,6 +13,13 @@ export default function FocusTime({focusTask,onBack}){
 
       return `${minutes}:${second<10 ? '0':''}${second}`;//5minut:3second =5:03
     }
+
+    const showToast= () => {
+      Toast.show({ 
+        type:'info',
+        text1:`you have successfully focused on${focusTask}`
+      })
+    }
     useEffect(() =>{  //is running or selectedTime sikeyer yh code endisera new
       //if(isRunning){
       let intervalId;//like id creat in setInterval
@@ -20,12 +28,14 @@ export default function FocusTime({focusTask,onBack}){
     }, 1000)// bye and secod degagmeh sra malet new 1000millisseconds = 1second malet new
   //}
 
-          if(!isRunning || selectedTime <=0 ){
+          if(!isRunning || selectedTime < 0 ){
 
       clearInterval(intervalId);//zero  ena kezero betachi yemihon kehon yemikensewn part ykr
     }
     else if(selectedTime ===0){
-     Alert.alert(`you have succefully focused on ${focusTask}`)
+      showToast();
+      setIsRunning(false);
+     //Alert.alert(`you have succefully focused on ${focusTask}`)
     }
     
     return () => clearInterval(intervalId);//useEffect endegena sisera yekedmow setInterval endayketl yredal
@@ -64,8 +74,10 @@ export default function FocusTime({focusTask,onBack}){
           <TouchableOpacity style={styles.backFab} onPress={onBack}>
             <Text style={{color:'#fff'}}>Back</Text>
          </TouchableOpacity>
-              
+           <Toast/>    
+
         </SafeAreaView>
+
     )
 }
 const styles= StyleSheet.create({
