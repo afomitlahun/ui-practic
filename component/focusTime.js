@@ -1,7 +1,7 @@
 import {View,Text,StyleSheet,TouchableOpacity,Alert} from 'react-native'
 import { SafeAreaView} from 'react-native-safe-area-context'
 import {useState,useEffect} from 'react'//useEffect=and nger sikeyer weym compont sikefet code masked
-import Toast from "react-native-toast-message";
+import Toast from 'react-native-toast-message';
 import {SystemBars} from 'react-native-edge-to-edge';
 
 export default function FocusTime({focusTask,onBack}){
@@ -44,9 +44,12 @@ export default function FocusTime({focusTask,onBack}){
 
     return(
         <SafeAreaView style={styles.continer}>
-         <SystemBars style="dark"/>
+          <TouchableOpacity style={styles.backFab} onPress={onBack}>
+            <Text style={{color:'#fff'}}>Back</Text>
+         </TouchableOpacity>
+         <SystemBars style="light"/>
             <Text style={styles.timerText}>
-               {selectedTime ? timeFormat (selectedTime): '10:00'}
+               {selectedTime ? timeFormat (selectedTime): '00:00'}
                 </Text>
             
            < Text style={styles.subTite}>focusing on : </Text>
@@ -73,9 +76,7 @@ export default function FocusTime({focusTask,onBack}){
             <Text style={{color:'white'}}>{isRunning?'stop':'start'}</Text>
          </TouchableOpacity>
 
-          <TouchableOpacity style={styles.backFab} onPress={onBack}>
-            <Text style={{color:'#fff'}}>Back</Text>
-         </TouchableOpacity>
+          
            <Toast/>    
 
         </SafeAreaView>
@@ -154,13 +155,11 @@ startFab:{
   borderWidth:2,
 },
 backFab:{
-  height:30,
-  width:80,
-  borderColor:'#fff',
-  borderRadius:20,
-  borderWidth:2,
+  height:50,
+  width:100,
   marginTop:50,
   alignItems:'center',
+  alignSelf:'flrx-start',
 },
 styleTask:{
   alignItems:'center',

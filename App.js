@@ -1,8 +1,10 @@
-import { StyleSheet, Text, View ,Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View ,Button, TouchableOpacity,ImageBackground,ScrollView } from 'react-native';
  import { TextInput } from 'react-native-paper';
 import {SafeAreaView  } from'react-native-safe-area-context';
 import{ useState } from 'react';
 import FocusTime from './component/focusTime';
+import {SystemBars} from 'react-native-edge-to-edge';
+
 
 export default function App() { 
   const [switchScreen,setSwitchScreen] = useState(false);//focusTime screen atasay
@@ -49,6 +51,7 @@ if(switchScreen) {  // = if(switchscreen === true) yhe malet screen ykeyrewal ma
     
   return (
     <SafeAreaView style={styles.container}>
+      <SystemBars style="light"/>
       <Text>hello</Text>
      <View  style= { styles.inputcontainer}>
      < TextInput 
@@ -71,14 +74,14 @@ if(switchScreen) {  // = if(switchscreen === true) yhe malet screen ykeyrewal ma
      </View>
      <View style={styles.focusedtaske}>
       <Text style={styles.focuseTitle}>Things we've focusd on:</Text>
+      <ImageBackground style={styles.taskBackground} source={require('./assets/images/focuss.jpg')}>
+      <ScrollView style= {{padding:20}} contentContainerStyle={{ gap:20} } >
       {tasks.map(( task,index) =>(
-        <Text key={index} style ={styles.taskText} >{task} </Text>// yemnsetew stayle leeyandandu endiders
+        <Text key={index} style ={styles.taskText} >-{task} </Text>// yemnsetew stayle leeyandandu endiders
       )
       )}
-        <View style= {{padding:20}}>
-        <Text style ={{fontSize:18,color:'#fff', fontWeight:'semi-bold'}} > 1, Learn react native</Text>
-        <Text style ={{fontSize:18,color:'#fff', fontWeight:'semi-bold'}}> 2, learn js bacic</Text>
-      </View>
+       </ScrollView>
+       </ImageBackground>
      </View>
     
     </SafeAreaView>
@@ -122,6 +125,7 @@ fabbutton:{
   focusedtaske:{
     margin:20,
     padding:10,
+    flex:1,
   },
   focuseTitle:{
     fontWeight:'bold',
@@ -134,6 +138,12 @@ fabbutton:{
     fontSize:18,
     color:'#fff',
     padding:10
+  },
+  taskBackground:{
+    flex:1,
+    resizeMode:'cover',
+    overflow:'hidden',
+    borderRadius :20,
+    marginTop:20,
   }
-
 });
