@@ -1,8 +1,9 @@
-import {View,Text,StyleSheet,TouchableOpacity,Alert} from 'react-native'
+import {View,Text,StyleSheet,TouchableOpacity,Alert,ImageBackground} from 'react-native'
 import { SafeAreaView} from 'react-native-safe-area-context'
 import {useState,useEffect} from 'react'//useEffect=and nger sikeyer weym compont sikefet code masked
 import Toast from 'react-native-toast-message';
 import {SystemBars} from 'react-native-edge-to-edge';
+import { Ionicons} from '@expo/vector-icons';
 
 export default function FocusTime({focusTask,onBack}){
     const times = [10,900, 1200];
@@ -44,7 +45,9 @@ export default function FocusTime({focusTask,onBack}){
 
     return(
         <SafeAreaView style={styles.continer}>
+          <ImageBackground style={styles.imageBackground}resizeMode='cover' source={require('../assets/images/focusss.jpg')}>
           <TouchableOpacity style={styles.backFab} onPress={onBack}>
+            <Ionicons name="chevron-back" size={24} color="white"/>
             <Text style={{color:'#fff'}}>Back</Text>
          </TouchableOpacity>
          <SystemBars style="light"/>
@@ -78,7 +81,7 @@ export default function FocusTime({focusTask,onBack}){
 
           
            <Toast/>    
-
+          </ImageBackground>
         </SafeAreaView>
 
     )
@@ -89,6 +92,13 @@ continer:{
   backgroundColor:'#0d91a0',
 
   alignItems:'center',
+
+},
+imageBackground:{
+  flex:1,
+  alignItems:'center',
+
+
 
 },
 timerText:{
@@ -155,6 +165,7 @@ startFab:{
   borderWidth:2,
 },
 backFab:{
+  flexDirection:'row',
   height:50,
   width:100,
   marginTop:50,

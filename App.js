@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View ,Button, TouchableOpacity,ImageBackground,ScrollView } from 'react-native';
+import { StyleSheet, Text, View ,Button, TouchableOpacity,ImageBackground,ScrollView,Pressable } from 'react-native';
  import { TextInput } from 'react-native-paper';
 import {SafeAreaView  } from'react-native-safe-area-context';
 import{ useState } from 'react';
@@ -74,10 +74,12 @@ if(switchScreen) {  // = if(switchscreen === true) yhe malet screen ykeyrewal ma
      </View>
      <View style={styles.focusedtaske}>
       <Text style={styles.focuseTitle}>Things we've focusd on:</Text>
-      <ImageBackground style={styles.taskBackground} source={require('./assets/images/focuss.jpg')}>
+      <ImageBackground style={styles.taskBackground} source={require('./assets/images/focusss.jpg')}>
       <ScrollView style= {{padding:20}} contentContainerStyle={{ gap:20} } >
       {tasks.map(( task,index) =>(
-        <Text key={index} style ={styles.taskText} >-{task} </Text>// yemnsetew stayle leeyandandu endiders
+        <Pressable key={index} onPress={()=>{changeScreen(); setSelectedTask(task);}}>
+        <Text key={index} style ={styles.taskText} >-{task} </Text>
+        </Pressable>
       )
       )}
        </ScrollView>
