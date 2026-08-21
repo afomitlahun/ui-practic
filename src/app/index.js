@@ -2,11 +2,12 @@ import { StyleSheet, Text, View ,Button, TouchableOpacity,ImageBackground,Scroll
  import { TextInput } from 'react-native-paper';
 import {SafeAreaView  } from'react-native-safe-area-context';
 import{ useState } from 'react';
-import FocusTime from '../../component/focusTime';
+//import FocusTime from '../../component/focusTime';
 import {SystemBars} from 'react-native-edge-to-edge';
+import{router } from 'expo-router';
 
 
-export default function App() { 
+export default function Home() { 
   const [switchScreen,setSwitchScreen] = useState(false);//focusTime screen atasay
 // const [addTask , setAddTask] = useState(false);
 const [task,setTask] = useState('');
@@ -25,6 +26,7 @@ const changeScreen = () => {
     setSelectedTask(trimmed); //ahun yemeretkut task screen lay askemtlgni
   //setSwitchScreen(!switchScreen);// function new screen ykeyral ena boolean ygelebtal(!)
    //setSwitchScreen(true);// screen ykeyral//yhe sitera switchScreen= true yhonal
+   router.push({pathname:'/focusTime',params:{focusTask:trimmed}})
   }
 };
 
@@ -33,12 +35,12 @@ const changeScreen = () => {
   //setAddTask (prev =>!prev);//back button sichan false->true ,true->false
  //}
 
-if(switchScreen) {  // = if(switchscreen === true) yhe malet screen ykeyrewal malet new
-  return <FocusTime  // FocusTime asay
-  focusTask ={selectedTask} // learn react native bihon yemeretnew esun wed focus yemiwesdln{ 
+//if(switchScreen) {  // = if(switchscreen === true) yhe malet screen ykeyrewal malet new
+// return <FocusTime  // FocusTime asay
+ //focusTask ={selectedTask} // learn react native bihon yemeretnew esun wed focus yemiwesdln{ 
   // focusTask&onBck props is parent component ke aap wed focustime yemilkew mereja new  }
-   onBack = { changeScreen} /> //  ezihm funcion eyelacn new on back snneka degmo screen adrglgni
-//}
+  // onBack = { changeScreen} /> //  ezihm funcion eyelacn new on back snneka degmo screen adrglgni
+//};
 
 
 
@@ -47,7 +49,7 @@ if(switchScreen) {  // = if(switchscreen === true) yhe malet screen ykeyrewal ma
 
  //setTasks([...tasks,task]);
   
- };
+ //};
     
   return (
     <SafeAreaView style={styles.container}>
@@ -74,7 +76,7 @@ if(switchScreen) {  // = if(switchscreen === true) yhe malet screen ykeyrewal ma
      </View>
      <View style={styles.focusedtaske}>
       <Text style={styles.focuseTitle}>Things we've focusd on:</Text>
-      <ImageBackground style={styles.taskBackground} source={require('./assets/images/focuss.jpg')}>
+      <ImageBackground style={styles.taskBackground} source={require('../../assets/images/focusss.jpg')}>
       <ScrollView style= {{padding:20}} contentContainerStyle={{ gap:20} } >
       {tasks.map(( task,index) =>(
         <Text key={index} style ={styles.taskText} >-{task} </Text>// yemnsetew stayle leeyandandu endiders
