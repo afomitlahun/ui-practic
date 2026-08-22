@@ -4,7 +4,7 @@ import {SafeAreaView  } from'react-native-safe-area-context';
 import{ useState } from 'react';
 //import FocusTime from '../../component/focusTime';
 import {SystemBars} from 'react-native-edge-to-edge';
-import{router } from 'expo-router';
+import{router ,useLocalSearchParams} from 'expo-router';
 
 
 export default function Home() { 
@@ -26,7 +26,8 @@ const changeScreen = () => {
     setSelectedTask(trimmed); //ahun yemeretkut task screen lay askemtlgni
   //setSwitchScreen(!switchScreen);// function new screen ykeyral ena boolean ygelebtal(!)
    //setSwitchScreen(true);// screen ykeyral//yhe sitera switchScreen= true yhonal
-   router.push({pathname:'/focusTime',params:{focusTask:trimmed}})
+   router.push({pathname:'/focusTime',
+    params:{focusTask:trimmed }});
   }
 };
 
@@ -66,9 +67,9 @@ const changeScreen = () => {
     < TouchableOpacity
       style={styles.fabbutton} 
        onPress={() =>{
-        addTask();
-       changeScreen();
-       }}
+        addTask();}}
+       //changeScreen();
+      
          >
         <Text
        style={ styles.fabText}>+</Text>

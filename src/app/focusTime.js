@@ -4,8 +4,10 @@ import {useState,useEffect} from 'react'//useEffect=and nger sikeyer weym compon
 import Toast from 'react-native-toast-message';
 import {SystemBars} from 'react-native-edge-to-edge';
 import { Ionicons} from '@expo/vector-icons';
+import{router ,useLocalSearchParams} from 'expo-router';
 
 export default function FocusTime(){
+    const {focusTask}=useLocalSearchParams();
     const times = [10,900, 1200];
     const [isRunning,setIsRunning ] = useState(false);//ahun timeru eyesera new wey yemilewn yyzal(false)yehonebet mejemeriya timeru ayseram
     const[selectedTime,setSelectedTime] = useState()//yetgnawn time mertku
@@ -19,7 +21,7 @@ export default function FocusTime(){
     const showToast= () => {
       Toast.show({ 
         type:'info',
-        text1:`you have successfully focused on${focusTask}`
+        text1:`you have successfully focused on${focusTask}`,
       })
     }
     useEffect(() =>{  //is running or selectedTime sikeyer yh code endisera new
@@ -46,7 +48,7 @@ export default function FocusTime(){
     return(
         <SafeAreaView style={styles.continer}>
           <ImageBackground style={styles.imageBackground}resizeMode='cover' source={require('../../assets/images/focusss.jpg')}>
-          <TouchableOpacity style={styles.backFab} onPress={onBack}>
+          <TouchableOpacity style={styles.backFab} onPress={() =>router.back()}>
             <Ionicons name="chevron-back" size={24} color="white"/>
             <Text style={{color:'#fff'}}>Back</Text>
          </TouchableOpacity>
