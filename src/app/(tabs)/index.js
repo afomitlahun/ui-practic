@@ -4,11 +4,11 @@ import {SafeAreaView  } from'react-native-safe-area-context';
 import{ useState } from 'react';
 //import FocusTime from '../../component/focusTime';
 import {SystemBars} from 'react-native-edge-to-edge';
-import{router ,useLocalSearchParams} from 'expo-router';
+import{router } from 'expo-router';
 
 
 export default function Home() { 
-  const [switchScreen,setSwitchScreen] = useState(false);//focusTime screen atasay
+  const [switchScreen,setSwitchScreen] = useState(false);//focusTime screen atasay    
 // const [addTask , setAddTask] = useState(false);
 const [task,setTask] = useState('');
 const [tasks,setTasks] =useState([]);//ye mnsfewn list lemaskemet  new 
@@ -77,7 +77,7 @@ const changeScreen = () => {
      </View>
      <View style={styles.focusedtaske}>
       <Text style={styles.focuseTitle}>Things we've focusd on:</Text>
-      <ImageBackground style={styles.taskBackground} source={require('../../assets/images/focusss.jpg')}>
+      <ImageBackground style={styles.taskBackground} source={require('../../../assets/images/focusss.jpg')}>
       <ScrollView style= {{padding:20}} contentContainerStyle={{ gap:20} } >
       {tasks.map(( task,index) =>(
         <Text key={index} style ={styles.taskText} >-{task} </Text>// yemnsetew stayle leeyandandu endiders

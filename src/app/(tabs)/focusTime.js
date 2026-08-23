@@ -46,8 +46,9 @@ export default function FocusTime(){
   },[isRunning, selectedTime])//kehulet andu sikeyeru useEffect endegena yseral
 
     return(
-        <SafeAreaView style={styles.continer}>
-          <ImageBackground style={styles.imageBackground}resizeMode='cover' source={require('../../assets/images/focusss.jpg')}>
+        
+          <ImageBackground style={styles.imageBackground}resizeMode='cover' source={require('../../../assets/images/focusss.jpg')}>
+          <SafeAreaView style={styles.continer}edges={['top']}>
           <TouchableOpacity style={styles.backFab} onPress={() =>router.back()}>
             <Ionicons name="chevron-back" size={24} color="white"/>
             <Text style={{color:'#fff'}}>Back</Text>
@@ -83,15 +84,15 @@ export default function FocusTime(){
 
           
            <Toast/>    
-          </ImageBackground>
+  
         </SafeAreaView>
-
+        </ImageBackground>
     )
 }
 const styles= StyleSheet.create({
 continer:{
   flex:1,
-  backgroundColor:'#0d91a0',
+  backgroundColor:'transparent',
 
   alignItems:'center',
 
@@ -113,7 +114,7 @@ timerText:{
 subTite:{
   fontSize:18,
   color:'#fff',
-  marginTop:50,
+  marginTop:30,
 },
 focusTask:{
   fonitSize:30,
