@@ -59,7 +59,7 @@ export default function FocusTime(){
                 </Text>
             
            < Text style={styles.subTite}>focusing on : </Text>
-           <Text style={styles.focusTask}> {focusTask}</Text>
+           <Text style={styles.focusTask}> {focusTask}</Text>2
 
           <View style={styles.underselectedText}/>
           <Text style={styles.styleTask}> Task  </Text>

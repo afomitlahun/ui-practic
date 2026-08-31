@@ -5,18 +5,21 @@ import{ useState } from 'react';
 //import FocusTime from '../../component/focusTime';
 import {SystemBars} from 'react-native-edge-to-edge';
 import{router } from 'expo-router';
+import {useTasks} from '../../contexts/taskContets';
 
 
 export default function Home() { 
-  const [switchScreen,setSwitchScreen] = useState(false);//focusTime screen atasay    
-// const [addTask , setAddTask] = useState(false);
-const [task,setTask] = useState('');
-const [tasks,setTasks] =useState([]);//ye mnsfewn list lemaskemet  new 
-const [selectedTask, setSelectedTask]=useState("");// list wst yemeretnewn lemaskemet new
+  //const [switchScreen,setSwitchScreen] = useState(false);//focusTime screen atasay    
+// *const [addTask , setAddTask] = useState(false);
+//const [task,setTask] = useState('');
+//const [tasks,setTasks] =useState([]);//ye mnsfewn list lemaskemet  new 
+//const [selectedTask, setSelectedTask]=useState("");// list wst yemeretnewn lemaskemet new
+const {task,setTask,tasks,setTasks,selectedTask,setSelectedTask}=useTasks();
 
-const changeScreen = () => { 
-  setSwitchScreen(!switchScreen);// function new screen ykeyral ena boolean ygelebtal(!)
-}
+
+//const changeScreen = () => { 
+  //setSwitchScreen(!switchScreen);// function new screen ykeyral ena boolean ygelebtal(!)
+//}
  const addTask = () => {   // function new button sichan yseral
   const trimmed = task.trim();  //space yatefal e.g  |    learn react |--> | learn react| 
   if (trimmed.length>0)  {  // snt fidel endesafe yfetshal

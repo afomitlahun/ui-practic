@@ -1,7 +1,9 @@
 import {Tabs} from "expo-router";
-import {Ionicons} from '@expo/vector-icons'
+import {Ionicons} from '@expo/vector-icons';
+import TaskProvider from "../../contexts/taskContets"
 export default function Layout() {
     return(
+      <TaskProvider>
         <Tabs
          screenOptions={{
             tabBarStyle:{
@@ -23,5 +25,6 @@ export default function Layout() {
         tabBarIcon:()=><Ionicons name='settings-outline' size ={24} color ='black'/>
       }}/>
         </Tabs>
+        </TaskProvider>
     );
 }
