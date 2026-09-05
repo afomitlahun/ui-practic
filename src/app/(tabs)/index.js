@@ -23,14 +23,14 @@ const {task,setTask,tasks,setTasks,selectedTask,setSelectedTask}=useTasks();
  const addTask = () => {   // function new button sichan yseral
   const trimmed = task.trim();  //space yatefal e.g  |    learn react |--> | learn react| 
   if (trimmed.length>0)  {  // snt fidel endesafe yfetshal
-  setTasks(prev=>[...prev,trimmed]); // prev=kedmo yenebere task ..prev befit yeneberewn
+
   //  hulu yametal trimmed wtetun ykeyral
     setTask("") //button keteneka behuala learn react blen yesafnew ytefal(clane endiyaderg)
     setSelectedTask(trimmed); //ahun yemeretkut task screen lay askemtlgni
   //setSwitchScreen(!switchScreen);// function new screen ykeyral ena boolean ygelebtal(!)
    //setSwitchScreen(true);// screen ykeyral//yhe sitera switchScreen= true yhonal
-   router.push({pathname:'/focusTime',
-    params:{focusTask:trimmed }});
+   router.push({pathname:'/focusTime',})
+                
   }
 };
 
