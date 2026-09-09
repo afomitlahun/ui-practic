@@ -62,8 +62,8 @@ export default function FocusTime(){
                {selectedTime ? timeFormat (selectedTime): '00:00'}
                 </Text>
             
-           < Text style={styles.subTite}>focusing on : </Text>
-           <Text style={styles.focusTask}> {focusTask}</Text>2
+           <Text style={styles.subTite}>focusing on : </Text>
+           <Text style={styles.focusTask}> {focusTask}</Text>
 
           <View style={styles.underselectedText}/>
           <Text style={styles.styleTask}> Task  </Text>

@@ -1,7 +1,27 @@
-import{ createContext,useContext,usestate } from 'react'
+import{ createContext,useContext,useState } from 'react'
+import {darkStatusBar,lightStatusBar,darkTheme,lightTheme} from '../Utils/Color'
 
-const colorContets=createContext();
+const ColorContets=createContext();
 export default function colorProvider({children}){
   const [isDark,setIsDark] =useState(true);
-  const themeT
+  const toggleTheme =() =>setIsDark(prev=>!prev) ;
+  const colors= isDark?darkTheme:lightTheme;
+  const StatusBarStyle = isDark?lightStatusBar:darkStatusBar;
+  const value={colors,StatusBarStyle,toggleTheme};
+  
+
+return(
+  <ColorContets.Provider value={value}>
+    {children}
+</ColorContets.Provider>
+  
+)
 }
+export const useColors = () => {
+  const context=useContext(ColorContets);
+
+if(!context) {
+  throw new Error ('usecolors must be used within a colorProvider');}
+  return context;
+
+  }

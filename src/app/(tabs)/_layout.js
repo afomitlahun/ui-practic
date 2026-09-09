@@ -1,8 +1,10 @@
 import {Tabs} from "expo-router";
 import {Ionicons} from '@expo/vector-icons';
 import TaskProvider from "../../contexts/taskContets"
+import ColorProvider from '../../contexts/ColorContets';
 export default function Layout() {
     return(
+      <ColorProvider>
       <TaskProvider>
         <Tabs
          screenOptions={{
@@ -26,5 +28,6 @@ export default function Layout() {
       }}/>
         </Tabs>
         </TaskProvider>
+      </ColorProvider>
     );
 }

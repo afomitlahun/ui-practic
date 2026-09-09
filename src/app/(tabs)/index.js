@@ -6,7 +6,7 @@ import{ useState } from 'react';
 import {SystemBars} from 'react-native-edge-to-edge';
 import{router } from 'expo-router';
 import {useTasks} from '../../contexts/taskContets';
-
+import {useColors} from'../../contexts/ColorContets' 
 
 export default function Home() { 
   //const [switchScreen,setSwitchScreen] = useState(false);//focusTime screen atasay    
@@ -15,8 +15,7 @@ export default function Home() {
 //const [tasks,setTasks] =useState([]);//ye mnsfewn list lemaskemet  new 
 //const [selectedTask, setSelectedTask]=useState("");// list wst yemeretnewn lemaskemet new
 const {task,setTask,tasks,setTasks,selectedTask,setSelectedTask}=useTasks();
-
-
+const { colors,  StatusBarStyle} = useColors();
 //const changeScreen = () => { 
   //setSwitchScreen(!switchScreen);// function new screen ykeyral ena boolean ygelebtal(!)
 //}
@@ -56,8 +55,8 @@ const {task,setTask,tasks,setTasks,selectedTask,setSelectedTask}=useTasks();
  //};
     
   return (
-    <SafeAreaView style={styles.container}>
-      <SystemBars style="light"/>
+    <SafeAreaView style={[styles.container,{backgroundColor:colors.background}]}>
+      <SystemBars style={StatusBarStyle}/>
       <Text>hello</Text>
      <View  style= { styles.inputcontainer}>
      < TextInput 
@@ -97,7 +96,6 @@ const {task,setTask,tasks,setTasks,selectedTask,setSelectedTask}=useTasks();
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0d91a0',
   
   },
   inputcontainer:{
