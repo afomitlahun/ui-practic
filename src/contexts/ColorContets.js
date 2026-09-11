@@ -7,7 +7,7 @@ export default function colorProvider({children}){
   const toggleTheme =() =>setIsDark(prev=>!prev) ;
   const colors= isDark?darkTheme:lightTheme;
   const StatusBarStyle = isDark?lightStatusBar:darkStatusBar;
-  const value={colors,StatusBarStyle,toggleTheme};
+  const value={colors,StatusBarStyle,toggleTheme,isDark};
   
 
 return(

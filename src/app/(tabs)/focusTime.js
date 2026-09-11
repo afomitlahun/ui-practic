@@ -2,7 +2,7 @@ import {View,Text,StyleSheet,TouchableOpacity,Alert,ImageBackground} from 'react
 import { SafeAreaView} from 'react-native-safe-area-context'
 import {useState,useEffect} from 'react'//useEffect=and nger sikeyer weym compont sikefet code masked
 import Toast from 'react-native-toast-message';
-import {SystemBars} from 'react-native-edge-to-edge';
+
 import { Ionicons} from '@expo/vector-icons';
 import{router ,useLocalSearchParams} from 'expo-router';
 import {useTasks} from '../../contexts/taskContets'
@@ -57,7 +57,7 @@ export default function FocusTime(){
             <Ionicons name="chevron-back" size={24} color="white"/>
             <Text style={{color:'#fff'}}>Back</Text>
          </TouchableOpacity>
-         <SystemBars style="light"/>
+         
             <Text style={styles.timerText}>
                {selectedTime ? timeFormat (selectedTime): '00:00'}
                 </Text>

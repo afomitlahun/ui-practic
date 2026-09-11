@@ -67,7 +67,7 @@ const { colors,  StatusBarStyle} = useColors();
      onChangeText={ (text) => setTask(text )}
      />
     < TouchableOpacity
-      style={styles.fabbutton} 
+      style={[styles.fabbutton,{backgroundColor:colors.textPrimary}]} 
        onPress={() =>{
         addTask();}}
        //changeScreen();
@@ -78,7 +78,7 @@ const { colors,  StatusBarStyle} = useColors();
       </ TouchableOpacity>
      </View>
      <View style={styles.focusedtaske}>
-      <Text style={styles.focuseTitle}>Things we've focusd on:</Text>
+      <Text style={[styles.focuseTitle,{color:colors.textPrimary}]}>Things we've focusd on:</Text>
       <ImageBackground style={styles.taskBackground} source={require('../../../assets/images/focusss.jpg')}>
       <ScrollView style= {{padding:20}} contentContainerStyle={{ gap:20} } >
       {tasks.map(( task,index) =>(
