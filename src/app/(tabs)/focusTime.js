@@ -6,8 +6,10 @@ import Toast from 'react-native-toast-message';
 import { Ionicons} from '@expo/vector-icons';
 import{router ,useLocalSearchParams} from 'expo-router';
 import {useTasks} from '../../contexts/taskContets'
+import {useColors} from '../../contexts/ColorContets';
 
 export default function FocusTime(){
+  const {colors} = useColors();
   const {setTasks,selectedTask}=useTasks();
     const focusTask=selectedTask;
     const times = [10,900, 1200];
@@ -50,20 +52,20 @@ export default function FocusTime(){
 
     return(
         
-          <ImageBackground style={styles.imageBackground}resizeMode='cover' source={require('../../../assets/images/focusss.jpg')}>
-          <SafeAreaView style={styles.continer}edges={['top']}>
-          <TouchableOpacity style={styles.backFab} onPress={() => {router.back();
+          <SafeAreaView style={[styles.continer,{backgroundColor:colors.background}]}edges={['top']}>
+            
+          <TouchableOpacity style={[styles.backFab,{background:colors.textPrimary}]} onPress={() => {router.back();
   setSelectedTime(null)   ;                                                            }}>
-            <Ionicons name="chevron-back" size={24} color="white"/>
-            <Text style={{color:'#fff'}}>Back</Text>
+            <Ionicons name="chevron-back" size={24} color={colors.textPrimary}/>
+            <Text style={{color:colors.textPrimary}}>Back</Text>
          </TouchableOpacity>
          
-            <Text style={styles.timerText}>
+            <Text style={[styles.timerText,{color:colors.textPrimary}]}>
                {selectedTime ? timeFormat (selectedTime): '00:00'}
                 </Text>
             
            <Text style={styles.subTite}>focusing on : </Text>
-           <Text style={styles.focusTask}> {focusTask}</Text>
+           <Text style={[styles.focusTask,{ color:colors.textPrimary }]}> {focusTask}</Text>
 
           <View style={styles.underselectedText}/>
           <Text style={styles.styleTask}> Task  </Text>
@@ -90,7 +92,9 @@ export default function FocusTime(){
            <Toast/>    
   
         </SafeAreaView>
-        </ImageBackground>
+          
+        
+          
     )
 }
 const styles= StyleSheet.create({
