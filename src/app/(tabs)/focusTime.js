@@ -64,22 +64,22 @@ export default function FocusTime(){
                {selectedTime ? timeFormat (selectedTime): '00:00'}
                 </Text>
             
-           <Text style={styles.subTite}>focusing on : </Text>
+           <Text style={[styles.subTite,{color:colors.textPrimary}]}>focusing on : </Text>
            <Text style={[styles.focusTask,{ color:colors.textPrimary }]}> {focusTask}</Text>
 
           <View style={styles.underselectedText}/>
-          <Text style={styles.styleTask}> Task  </Text>
-          <View style={styles.timeOptions}>
+          <Text style={[styles.styleTask],{color:colors.textPrimary}}> Task  </Text>
+          <View style={[styles.timeOptions,{backgroundColor:colors.background}]}>
             {times.map((time,index) =>( 
               <TouchableOpacity 
               key={index} 
                 
               
-              style={styles.timeOptionsButton} 
+              style={[styles.timeOptionsButton,{backgroundColor:colors.background}]} 
               onPress={()=> setSelectedTime(time)} >
 
 
-                <Text style={styles.timeOptionText}> {timeFormat(time)}</Text>
+                <Text style={[styles.timeOptionsText,{color:colors.textPrimary}]}> {timeFormat(time)}</Text>
               </TouchableOpacity>
             ))}
           </View>
@@ -193,4 +193,3 @@ styleTask:{
   padding:20,
 }
 })
-
