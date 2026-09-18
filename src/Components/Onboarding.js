@@ -13,31 +13,37 @@ export default function OnBoarding() {
           {
             backgroundColor: '#4a0202',
             image: (
-              <Image
+              <LottieView
+                autoPlay
+                loop
                 style={{ width: 200, height: 200 }}
-                source={require('../../assets/icon.png')}
+                source={require('../../assets/productivity.json')}
               />
             ),
             title: 'Onboarding',
             subtitle: 'Done with React Native Onboarding Swiper',
           },
           {
-            backgroundColor: '#fff',
+            backgroundColor: '#f438ee',
             image: (
-              <Image
+              <LottieView
+                autoPlay
+                loop
                 style={{ width: 200, height: 200 }}
-                source={require('../../assets/icon.png')}
+                source={require('../../assets/office.json')}
               />
             ),
             title: 'Onboarding',
             subtitle: 'Done with React Native Onboarding Swiper',
           },
           {
-            backgroundColor: '#fff',
+            backgroundColor: '#3e024a',
             image: (
-              <Image
+              <LottieView
+                autoPlay
+                loop
                 style={{ width: 200, height: 200 }}
-                source={require('../../assets/icon.png')}
+                source={require('../../assets/time-management.json')}
               />
             ),
             title: 'Onboarding',
