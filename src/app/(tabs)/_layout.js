@@ -5,7 +5,9 @@ import{useColors}from'../../contexts/ColorContets'
 import {SystemBars} from 'react-native-edge-to-edge';
 import onboarding from 'react-native-onboarding-swiper'
 import OnBoarding from '../../Components/Onboarding'
+import {useState} from 'react'
 export default function Layout() {
+  const[showOnboarding, setshowOnboarding]=useState(true);
   const TabLayout = () => {
       const{StatusBarStyle,colors}= useColors();
     return(
