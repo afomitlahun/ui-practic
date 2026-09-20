@@ -3,12 +3,27 @@ import TaskProvider from "../../contexts/taskContets"
 import ColorProvider from '../../contexts/ColorContets';
 import{useColors}from'../../contexts/ColorContets'
 import {SystemBars} from 'react-native-edge-to-edge';
-import onboarding from 'react-native-onboarding-swiper'
 import OnBoarding from '../../Components/Onboarding'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
+import {setItems, getItems} from "../../Utils/Storage";
+import { Ionicons } from '@expo/vector-icons';
 export default function Layout() {
-  const[showOnboarding, setshowOnboarding]=useState(true);
+  const[showOnboarding, setShowOnboarding]=useState(false);
+  const checkOnboardingStatus = async () => {
+      try {
+        const onboardingCompleted=
+        await getItems("onboardingCompleted");
+        setShowOnboarding(onboardingCompleted!=="true");
+      }catch (error) {
+        console.error("Error checking onboarding status:",error);
+      }
+    };
+  useEffect(()=> {
+     checkOnboardingStatus();
+  },[])
+  
   const TabLayout = () => {
+    
       const{StatusBarStyle,colors}= useColors();
     return(
       <>
@@ -39,16 +54,25 @@ export default function Layout() {
     
   
 }
-return(
-  <OnBoarding/>
-)
   
-    //return(
-     // <ColorProvider>
+  if(showOnboarding) {
+    
+return<OnBoarding/>
+}
+  else if (!showOnboarding)  {
+    
+  
+  
+    return(
+     <ColorProvider>
          
-     // <TaskProvider>
-     // <TabLayout/>
-      //  </TaskProvider>
-    //  </ColorProvider>
-  //  );
+     <TaskProvider>
+      <TabLayout/>
+       </TaskProvider>
+    </ColorProvider>
+   );
+}
+  else {
+    return null;
+  }
 }
