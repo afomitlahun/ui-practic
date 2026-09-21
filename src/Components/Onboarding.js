@@ -1,22 +1,28 @@
 import Onboarding from 'react-native-onboarding-swiper';
-import { SafeAreaView, Image ,View} from 'react-native';
+import { SafeAreaView, Image, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import LottieView from "lottie-react-native";
-import {setItems} from "../Utils/Storage";
+import { setItems } from "../Utils/Storage";
+
 export default function OnBoarding() {
+  const insets = useSafeAreaInsets();
+
   const handleDone = async () => {
     try {
-      await setItems("onboardingCompleted","true");
+      await setItems("onboardingCompleted", "true");
       console.log("Onboarding status set to true");
-    }catch (error) {
-      console.error("Error setting onboarding atatus:",error);
+    } catch (error) {
+      console.error("Error setting onboarding atatus:", error);
     }
   };
+
   return (
     <SafeAreaView
       style={{ flex: 1, backgroundColor: '#fff' }}
     >
       <Onboarding
         controlStatusBar={false}
+        bottomBarHeight={70 + insets.bottom}
         onDone={handleDone}
         pages={[
           {

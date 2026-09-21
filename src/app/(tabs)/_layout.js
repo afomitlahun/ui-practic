@@ -29,6 +29,7 @@ export default function Layout() {
       <>
     <SystemBars style={StatusBarStyle}/>
       <Tabs
+        
          screenOptions={{
             tabBarStyle:{
           backgroundColor:colors.background,
