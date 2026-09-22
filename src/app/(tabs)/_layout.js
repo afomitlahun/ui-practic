@@ -65,12 +65,10 @@ return<OnBoarding/>
   
   
     return(
-     <ColorProvider>
          
      <TaskProvider>
       <TabLayout/>
        </TaskProvider>
-    </ColorProvider>
    );
 }
   else {
