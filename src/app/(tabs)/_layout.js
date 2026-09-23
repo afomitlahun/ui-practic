@@ -60,7 +60,7 @@ export default function Layout() {
     
 return<OnBoarding/>
 }
-  else if (!showOnboarding)  {
+   else if (!showOnboarding)  {
     
   
   
@@ -74,4 +74,5 @@ return<OnBoarding/>
   else {
     return null;
   }
+
 }

@@ -57,6 +57,10 @@ const { colors,  StatusBarStyle} = useColors();
   return (
     <SafeAreaView style={[styles.container,{backgroundColor:colors.background}]}>
       <SystemBars style={StatusBarStyle}/>
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>Focus</Text>
+        <Text style={styles.headerSubTitle}>what do want to work on?</Text>
+      </View>
       <Text>hello</Text>
      <View  style= { styles.inputcontainer}>
      < TextInput 
@@ -97,6 +101,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   
+  },
+  header:{
+    padding:20,
+  },
+  headerTitle:{
+  fontWeight:"bold",
+    fontSize:30,
+  },
+  headerSubTitle:{
+  fontSize:18,
+    color:"white",
   },
   inputcontainer:{
 
