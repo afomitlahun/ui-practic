@@ -57,9 +57,9 @@ const { colors,  StatusBarStyle} = useColors();
   return (
     <SafeAreaView style={[styles.container,{backgroundColor:colors.background}]}>
       <SystemBars style={StatusBarStyle}/>
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>Focus</Text>
-        <Text style={styles.headerSubTitle}>what do want to work on?</Text>
+      <View style={[styles.header,{backgroundColor:colors.background}]}>
+        <Text style={[styles.headerTitle,{color:colors.textPrimary}]}>Focus</Text>
+        <Text style={[styles.headerSubTitle,{color:colors.textSecondary}]}>what do want to work on?</Text>
       </View>
       <Text>hello</Text>
      <View  style= { styles.inputcontainer}>
