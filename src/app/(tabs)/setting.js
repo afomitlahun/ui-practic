@@ -7,7 +7,7 @@ import { Ionicons} from '@expo/vector-icons';
 const Setting =()=>{
   const {colors,toggleTheme,StatusBarStyle,isDark}=useColors();
     return ( 
-   
+   cvdsdv
   <SafeAreaView style ={{flex:1,justifyContent:'center',alignItems:'center',backgroundColor:colors.background}} >
     <StatusBar style={StatusBarStyle}/>
        <Text style={{ fontSize:20,color:colors. textPrimary  }}> setting screen</Text>
