@@ -3,7 +3,7 @@ import { StyleSheet, Text, View ,Button, TouchableOpacity,ImageBackground,Scroll
 import {SafeAreaView  } from'react-native-safe-area-context';
 import{ useState } from 'react';
 //import FocusTime from '../../component/focusTime';
-import {SystemBars} from 'react-native-edge-to-edge';
+import {StatusBar} from 'expo-status-bar';
 import{router } from 'expo-router';
 import {useTasks} from '../../contexts/taskContets';
 import {useColors} from'../../contexts/ColorContets' 
@@ -56,7 +56,11 @@ const { colors,  StatusBarStyle} = useColors();
     
   return (
     <SafeAreaView style={[styles.container,{backgroundColor:colors.background}]}>
-      <SystemBars style={StatusBarStyle}/>
+      <StatusBar style={StatusBarStyle}/>
+      <View style={[styles.header,{backgroundColor:colors.background}]}>
+        <Text style={[styles.headerTitle,{color:colors.textPrimary}]}>Focus</Text>
+        <Text style={[styles.headerSubTitle,{color:colors.textSecondary}]}>what do want to work on?</Text>
+      </View>
       <Text>hello</Text>
      <View  style= { styles.inputcontainer}>
      < TextInput 
@@ -97,6 +101,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   
+  },
+  header:{
+    padding:20,
+  },
+  headerTitle:{
+  fontWeight:"bold",
+    fontSize:30,
+  },
+  headerSubTitle:{
+  fontSize:18,
+    color:"white",
   },
   inputcontainer:{
 

@@ -2,7 +2,7 @@ import {Tabs} from 'expo-router';
 import TaskProvider from "../../contexts/taskContets"
 import ColorProvider from '../../contexts/ColorContets';
 import{useColors}from'../../contexts/ColorContets'
-import {SystemBars} from 'react-native-edge-to-edge';
+import {StatusBar} from 'expo-status-bar';
 import OnBoarding from '../../Components/Onboarding'
 import {useState,useEffect} from 'react'
 import {setItems, getItems} from "../../Utils/Storage";
@@ -27,7 +27,7 @@ export default function Layout() {
       const{StatusBarStyle,colors}= useColors();
     return(
       <>
-    <SystemBars style={StatusBarStyle}/>
+    <StatusBar style={StatusBarStyle}/>
       <Tabs
         
          screenOptions={{
@@ -60,7 +60,7 @@ export default function Layout() {
     
 return<OnBoarding/>
 }
-  else if (!showOnboarding)  {
+   else if (!showOnboarding)  {
     
   
   
@@ -74,4 +74,5 @@ return<OnBoarding/>
   else {
     return null;
   }
+
 }

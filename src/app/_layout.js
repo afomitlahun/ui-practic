@@ -5,6 +5,8 @@ import ColorProvider from '../contexts/ColorContets';
 import {useState,useEffect} from 'react'
 import{useColors}from'../contexts/ColorContets'
 import {getItems,setItems} from"../Utils/Storage";
+import OnBoarding from '../Components/Onboarding';
+
 
 export default function RootLayout({children}){
   
