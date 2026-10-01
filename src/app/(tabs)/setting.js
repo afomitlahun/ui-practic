@@ -22,4 +22,4 @@ const Setting =()=>{
 }
 const style = StyleSheet.create({})
 export default Setting;
-hi
+tt
